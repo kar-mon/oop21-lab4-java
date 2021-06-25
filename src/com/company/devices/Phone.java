@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Phone implements Device {
-    private String brand;
+    private Brands brand;
     private String model;
     private OS operatingSystem;
     private List<Application> installedApplications;
 
-    public String getBrand() {
+    public Brands getBrand() {
         return brand;
     }
 
-    public void setBrand(String brand) {
+    public void setBrand(Brands brand) {
         this.brand = brand;
     }
 
