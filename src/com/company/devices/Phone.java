@@ -1,5 +1,6 @@
 package com.company.devices;
 
+import javax.naming.Name;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,8 +38,30 @@ public class Phone implements Device {
         installedApplications = new ArrayList<>();
     }
 
+    public void installApp(Application name){
+        installedApplications.add(new Application());
+    }
+
     public boolean installApplication(Application application) {
-        System.out.println("Installing app");
+        if (application.SupportedOS != this.getOperatingSystem()) {
+            System.out.println("This application is not supported by the OS installed on the device");
+            return false;
+        }
+        var found = installedApplications.indexOf(application);
+        if (found != -1) {
+            if (application.Version == installedApplications.get(found).Version) {
+                System.out.println("This application is already installed on the device");
+                return false;
+            }
+            installedApplications.remove(found);
+            installedApplications.add(application);
+
+        }
+
+
+        System.out.println("Installing application");
         return true;
     }
+
 }
+

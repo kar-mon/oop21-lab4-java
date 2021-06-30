@@ -1,19 +1,17 @@
 package com.company;
 
-import com.company.devices.Application;
-import com.company.devices.Human;
-import com.company.devices.OS;
-import com.company.devices.Phone;
+import com.company.devices.*;
 
 public class Main {
 
     public static void main(String[] args) {
         var phone = new Phone();
         phone.setOperatingSystem(OS.Android);
-        var human = new Human();
-        human.setDevice(phone);
-        var application = new Application();
-        human.installApplication(application);
+        var user = new Human();
+        user.setDevice(phone);
+        user.setCash(100.0);
+        //var application = new Application();
+        //user.installApplication(application);
 
 
         Application workout = new Application();
@@ -26,11 +24,11 @@ public class Main {
 
         Application duolingo = new Application();
             duolingo.SupportedOS = OS.Android;
-            duolingo.Paid = false;
+            duolingo.Paid = true;
             duolingo.Name ="duolingo";
             duolingo.Version ="depending on the device";
             duolingo.Author = "Duolingo";
-            duolingo.Price = 0.0;
+            duolingo.Price = 150.0;
 
         Application  mimo = new Application();
             mimo.SupportedOS = OS.Android;
@@ -96,6 +94,11 @@ public class Main {
             lan.Author="Webrox";
             lan.Price=5.0;
 
+        user.installApplication(workout);
+        user.installApplication(duolingo);
+        user.installApplication(lan);
+        user.installApplication(imovie);
+        user.installApplication(pvz);
 
     }
 }
