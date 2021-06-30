@@ -7,11 +7,10 @@ public class Main {
     public static void main(String[] args) {
         var phone = new Phone();
         phone.setOperatingSystem(OS.Android);
+        phone.setBrand(Brands.Xiaomi);
         var user = new Human();
         user.setDevice(phone);
         user.setCash(100.0);
-        //var application = new Application();
-        //user.installApplication(application);
 
 
         Application workout = new Application();
@@ -94,11 +93,30 @@ public class Main {
             lan.Author="Webrox";
             lan.Price=5.0;
 
+        BrandApplication samsung = new BrandApplication(Brands.Samsung);
+            samsung.SupportedOS = OS.Android;
+            samsung.Paid = false;
+            samsung.Name = "Samsung Gallery";
+            samsung.Version = "3";
+            samsung.Author = "Samsung";
+            samsung.Price = 0.0;
+
+        BrandApplication xiaomi = new BrandApplication(Brands.Xiaomi);
+            xiaomi.SupportedOS = OS.Android;
+            xiaomi.Paid = false;
+            xiaomi.Name = "Mi home";
+            xiaomi.Version = "12a";
+            xiaomi.Author = "Xiaomi";
+            xiaomi.Price = 0.0;
+
         user.installApplication(workout);
         user.installApplication(duolingo);
         user.installApplication(lan);
         user.installApplication(imovie);
         user.installApplication(pvz);
+
+        phone.installBrandApplication(samsung);
+        phone.installBrandApplication(xiaomi);
 
     }
 }

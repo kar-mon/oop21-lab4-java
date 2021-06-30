@@ -57,11 +57,23 @@ public class Phone implements Device {
             installedApplications.add(application);
 
         }
-
-
         System.out.println("Installing application");
         return true;
     }
+
+    public boolean installBrandApplication(BrandApplication application){
+        if (this.brand == application.supportedBrand) {
+            return this.installApplication(application);
+        }
+        System.out.println("This device brand is not supported");
+        return false;
+
+
+    }
+
+
+
+
 
 }
 
